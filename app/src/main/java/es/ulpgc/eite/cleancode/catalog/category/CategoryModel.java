@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.app.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.app.ProductItem;
 
 
 public class CategoryModel implements CategoryContract.Model {
 
     public static String TAG = CategoryModel.class.getSimpleName();
-    private final List<CategoryItem> itemList = new ArrayList<>();
+    private final List<ProductItem> itemList = new ArrayList<>();
     private final int COUNT = 20;
 
     private String data;
@@ -21,13 +22,13 @@ public class CategoryModel implements CategoryContract.Model {
             addProduct(createProduct(index));
         }
     }
-    private void addProduct(CategoryItem item) {
+    private void addProduct(ProductItem item) {
         itemList.add(item);
     }
-    private CategoryItem createProduct(int position) {
+    private ProductItem createProduct(int position) {
         String content = "Category " + position;
 
-        return new CategoryItem(
+        return new ProductItem(
                 position, content, fetchProductDetails(position)
         );
 
@@ -47,8 +48,8 @@ public class CategoryModel implements CategoryContract.Model {
 
 
     @Override
-    public List<CategoryItem> fetchProductListData() {
-        Log.e(TAG, "fetchProductListData()");
+    public List<ProductItem> fetchCategoryData() {
+        Log.e(TAG, "fetchfetchCategoryData()");
         return itemList;
     }
 

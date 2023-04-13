@@ -11,12 +11,13 @@ import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.R;
 import es.ulpgc.eite.cleancode.catalog.app.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.app.ProductItem;
 
-public class CategoryAdapter extends ArrayAdapter<CategoryItem> {
-    private final List<CategoryItem> itemList;
+public class CategoryAdapter extends ArrayAdapter<ProductItem> {
+    private final List<ProductItem> itemList;
     private final View.OnClickListener clickListener;
     public CategoryAdapter(
-            Context context, List<CategoryItem> items, View.OnClickListener listener) {
+            Context context, List<ProductItem> items, View.OnClickListener listener) {
 
         super(context, 0, items);
 
@@ -29,7 +30,7 @@ public class CategoryAdapter extends ArrayAdapter<CategoryItem> {
     }
 
     @Override
-    public CategoryItem getItem(int position) {
+    public ProductItem getItem(int position) {
         return itemList.get(position);
     }
 

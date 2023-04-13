@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.app.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.app.ProductItem;
 
 public interface CategoryContract {
 
@@ -22,7 +23,7 @@ public interface CategoryContract {
 
         void fetchCategoryData();
 
-        void selectProductListData(CategoryItem item);
+        void selectProductListData(ProductItem item);
 
     }
 
@@ -35,7 +36,7 @@ public interface CategoryContract {
 
         void onDataFromPreviousScreen(String data);
 
-        List<CategoryItem> fetchProductListData();
+        List<ProductItem> fetchCategoryData();
     }
 
 }

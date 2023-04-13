@@ -17,4 +17,10 @@ public class ProductItem {
   public String toString() {
     return content;
   }
+  public int getId() {
+    return id;
+  }
+  public String getContent() {
+    return content;
+  }
 }

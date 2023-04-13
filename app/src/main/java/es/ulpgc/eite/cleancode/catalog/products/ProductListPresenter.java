@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.catalog.products;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
@@ -50,15 +52,32 @@ public class ProductListPresenter implements ProductListContract.Presenter {
   public void fetchProductListData() {
     // Log.e(TAG, "fetchProductListData()");
 
+    ProductItem product = getDataFromCategoryListScreen();
+    String content = product.getContent();
+    Log.e(TAG, "Content " + content);
+    int index = Integer.parseInt(content.substring(9));
+    Log.e(TAG, "Indice " + index);
+
+    model.setCategoryElegida(index);
+
+    // call the model
     state.products = model.fetchProductListData();
+    view.get().editToolbar(index);
     view.get().displayProductListData(state);
 
   }
 
   @Override
   public void selectProductListData(ProductItem item) {
+    // Log.e(TAG, "fetchProductListData()");
     passDataToProductDetailScreen(item);
+    //router.navigateToProductDetailScreen();
     view.get().navigateToProductDetailScreen();
+  }
+
+  private ProductItem getDataFromCategoryListScreen() {
+    ProductItem product = mediator.getProduct();
+    return product;
   }
 
 

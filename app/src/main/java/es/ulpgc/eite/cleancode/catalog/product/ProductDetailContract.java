@@ -8,6 +8,7 @@ interface ProductDetailContract {
     void injectPresenter(Presenter presenter);
 
     void displayProductDetailData(ProductDetailViewModel viewModel);
+    void editToolbar(float option);
   }
 
   interface Presenter {

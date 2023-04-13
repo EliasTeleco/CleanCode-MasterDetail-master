@@ -37,6 +37,7 @@ public class ProductListActivity
     // Show the title in the action bar
     ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
+      actionBar.setDisplayHomeAsUpEnabled(true);
       actionBar.setTitle(getString(R.string.title_product_list));
     }
 
@@ -61,6 +62,14 @@ public class ProductListActivity
     Intent intent = new Intent(this, ProductDetailActivity.class);
     //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
+  }
+
+  @Override
+  public void editToolbar(int option) {
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setTitle("Category " + option);
   }
 
   @Override

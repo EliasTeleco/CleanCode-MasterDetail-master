@@ -5,7 +5,7 @@ import java.util.List;
 
 import es.ulpgc.eite.cleancode.catalog.app.ProductItem;
 
-interface ProductListContract {
+public interface ProductListContract {
 
   interface View {
     void injectPresenter(Presenter presenter);
@@ -13,6 +13,8 @@ interface ProductListContract {
     void displayProductListData(ProductListViewModel viewModel);
 
     void navigateToProductDetailScreen();
+
+    void editToolbar(int option);
   }
 
   interface Presenter {
@@ -26,6 +28,8 @@ interface ProductListContract {
 
   interface Model {
     List<ProductItem> fetchProductListData();
+
+    void setCategoryElegida(int categoryElegida);
   }
 
 //  interface Router {

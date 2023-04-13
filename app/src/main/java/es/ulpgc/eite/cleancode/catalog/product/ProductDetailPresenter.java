@@ -51,11 +51,14 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     // set passed state
     ProductItem product = getDataFromProductListScreen();
-    //ProductItem product = router.getDataFromProductListScreen();
+    String content = product.getContent();
+    float index = Float.parseFloat(content.substring(8));
+
     if (product != null) {
       state.product = product;
     }
 
+    view.get().editToolbar(index);
     view.get().displayProductDetailData(state);
   }
 

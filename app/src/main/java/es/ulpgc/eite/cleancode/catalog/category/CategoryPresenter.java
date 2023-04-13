@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.catalog.app.CatalogMediator;
 import es.ulpgc.eite.cleancode.catalog.app.CategoryItem;
+import es.ulpgc.eite.cleancode.catalog.app.ProductItem;
 
 public class CategoryPresenter implements CategoryContract.Presenter {
 
@@ -21,19 +22,19 @@ public class CategoryPresenter implements CategoryContract.Presenter {
 
     @Override
     public void fetchCategoryData() {
-        state.category = model.fetchProductListData();
+        state.products = model.fetchCategoryData();
         view.get().onDataUpdated(state);
 
     }
 
     @Override
-    public void selectProductListData(CategoryItem item) {
+    public void selectProductListData(ProductItem item) {
         passDataToNextScreen(item);
         view.get().navigateToNextScreen();
     }
 
-    private void passDataToNextScreen(CategoryItem item){
-        mediator.setCategory(item);
+    private void passDataToNextScreen(ProductItem item){
+        mediator.setProduct(item);
    }
 
     @Override

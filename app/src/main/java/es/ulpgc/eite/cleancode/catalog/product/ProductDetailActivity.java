@@ -71,4 +71,11 @@ public class ProductDetailActivity
     }
     return super.onOptionsItemSelected(item);
   }
+  @Override
+  public void editToolbar(float option) {
+    Toolbar detail_toolbar = findViewById(R.id.detail_toolbar);
+    setSupportActionBar(detail_toolbar);
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setTitle("Product " + option);
+  }
 }

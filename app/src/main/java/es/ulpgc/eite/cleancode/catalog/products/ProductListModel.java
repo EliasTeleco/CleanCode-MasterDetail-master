@@ -12,39 +12,51 @@ public class ProductListModel implements ProductListContract.Model {
   public static String TAG = ProductListModel.class.getSimpleName();
 
   private final List<ProductItem> itemList = new ArrayList<>();
-  private final int COUNT = 20;
-  private int id1;
+  private final int COUNT = 100;
 
-  public ProductListModel(int id1) {
-    // Add some sample items
+  private int categoryElegida;
+
+
+  public ProductListModel() {
+    /* Add some sample items
     for (int index = 1; index <= COUNT; index++) {
-      addProduct(createProduct(index, id1));
+      addProduct(createProduct(index));
+    }*/
+  }
+  private void generateProducts() {
+    for (int index = 1; index <= COUNT; index++) {
+      addProduct(createProduct(index));
     }
   }
-
   @Override
   public List<ProductItem> fetchProductListData() {
     Log.e(TAG, "fetchProductListData()");
+    generateProducts();
     return itemList;
   }
+
+
 
   private void addProduct(ProductItem item) {
     itemList.add(item);
   }
 
 
-  private ProductItem createProduct(int position, int id1) {
-    String content = "Product " + id1 + "." + position;
+  private ProductItem createProduct(int position) {
+    String content = "Product " + categoryElegida +"."+ position;
 
     return new ProductItem(
-        position, content, fetchProductDetails(position, id1)
+        position, content, fetchProductDetails(position)
     );
 
   }
 
-
-  private String fetchProductDetails(int position, int id1) {
-    String content = "Details about Product:  "+id1+"." + position;
+  @Override
+  public void setCategoryElegida(int categoryElegida) {
+    this.categoryElegida = categoryElegida;
+  }
+  private String fetchProductDetails(int position) {
+    String content = "Details about Product:  "+ categoryElegida +"." + position;
     StringBuilder builder = new StringBuilder();
     builder.append(content);
 
